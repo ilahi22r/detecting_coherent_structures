@@ -11,31 +11,37 @@ This repository implements the Dual E-tec method, which tracks how material curv
 - Uses topological invariants for robust structure detection
 - Supports periodic boundary conditions (torus topology)
 
-## Features
+# Features
 
-# Core Algorithms
+## Core Concepts
 
   Dual E-tec triangulation with evolving simplices
+  
   Edge Crossing Counting to track material curve deformation
+  
   Topological Entropy computation from crossing patterns
+  
   Material Band Advection and curve stretching
 
-# Geometry & Boundary Support
+## Geometry & Boundary Support
 
   Periodic boundaries (doubly periodic torus domains)
+  
   Flexible triangulation updates
+  
   Works with arbitrary time-dependent Lagrangian data
 
-# Visualization Tools
+## Visualization Tools
+  
+  Particle trajectories
+    
+  Edge-crossing patterns
+    
+  Coherent structures
+    
+  Material band evolution
 
-  Plotting of:
-
-    Particle trajectories
-    Edge-crossing patterns
-    Coherent structures
-    Material band evolution
-
-## Installation
+# Installation
 ```bash
 git clone https://github.com/ilahi22r/detecting_coherent_structures.git
 cd detecting_coherent_structures
