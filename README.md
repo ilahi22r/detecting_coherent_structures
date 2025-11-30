@@ -94,34 +94,4 @@ MIT License
 ilahi22r@mtholyoke.edu
 ```
 
-**Step 4: Create `requirements.txt`**
-```
-numpy>=1.20.0
-scipy>=1.7.0
-matplotlib>=3.3.0
-```
 
-**Step 5: Create `.gitignore`**
-```
-# Python
-__pycache__/
-*.py[cod]
-*.so
-*.egg-info/
-dist/
-build/
-
-# Data and outputs
-*.png
-*.pdf
-*.dat
-*.h5
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-
-# OS
-.DS_Store
-Thumbs.db
