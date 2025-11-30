@@ -12,8 +12,3 @@ The repository is modular and organized into:
 - `src/` — core simulation tools
 - `examples/` — visualization and usage scripts
 - `figures/` — saved plots
-
-## Getting Started
-
-```bash
-pip install -r requirements.txt
