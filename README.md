@@ -42,7 +42,7 @@ The Dual E-tec algorithm:
 
 ## Repository Structure
 
-```
+```python
 detecting_coherent_structures/
 ├── README.md
 │
@@ -69,7 +69,7 @@ detecting_coherent_structures/
 └── docs/                         # Documentation
     ├── theory.md                # Mathematical background
     └── api.md                   # API documentation
-```
+
 
 ## Requirements
 
