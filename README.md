@@ -52,19 +52,18 @@ detecting_coherent_structures/
 │
 ├── src/                          # Core backend
 │   ├── __init__.py
-│   └── etec_dual.py             # Your triangulation backend (existing code)
+│   └── etec_dual.py             # Triangulation backend
 │
-├── examples/                     # Full implementation showcase
+├── examples/                     # Full implementation 
 │   ├── __init__.py
 │   ├── bickley_jet.py           # Complete analysis script
 │   ├── velocity_fields.py       # Analytical velocity definitions
 │   └── run_analysis.py          # Main executable
 │
-├── analysis/                     # Analysis tools (makes it impressive)
+├── analysis/                     # Analysis tools
 │   ├── __init__.py
 │   ├── coherent_structures.py   # Structure detection algorithms
-│   ├── topological_metrics.py   # Compute entropy, braid indices
-│   └── comparison.py            # Compare with FTLE/traditional methods
+│   
 │
 ├── visualization/                # Professional visualizations
 │   ├── __init__.py
@@ -73,18 +72,7 @@ detecting_coherent_structures/
 │   ├── plot_trajectories.py     # Trajectory plots
 │   └── animate.py               # Create animations
 │
-├── utils/                        # Utilities
-│   ├── __init__.py
-│   ├── integrate.py             # Trajectory integration
-│   └── io.py                    # Save/load results
-│
-├── notebooks/                    # Jupyter demos (very impressive!)
-│   └── bickley_jet_demo.ipynb   # Interactive demonstration
-│
-├── results/                      # Output directory
-│   └── .gitkeep
-│
-└── docs/                         # Documentation (optional but impressive)
+└── docs/                         # Documentation
     ├── theory.md                # Mathematical background
     └── api.md                   # API documentation
 
