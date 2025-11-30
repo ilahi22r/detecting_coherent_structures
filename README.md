@@ -40,43 +40,6 @@ The Dual E-tec algorithm:
 4. Tracks edge crossings to compute topological invariants
 5. Identifies coherent structures from crossing patterns and topological entropy
 
-## Repository Structure
-
-```python
-detecting_coherent_structures/
-├── README.md
-│
-├── src/                              # Contains the main backend code used to generate triangulation
-│   └── etec_dual_periodic_bc_v2.py    
-│
-├── bickley_jet_example/               # Full implementation 
-│   ├── bickley_jet_velocity_field.py  # Solutions to Bickley Jet ODEs with ICs
-│   ├── creates_dynamic_range.py  # This defines a dynamic range in the y direction (adds stationary pts)
-│   └── generate_bickley_flow.py   # Generates Bickley Jet flow with stationary points
-│
-├── analysis/                     # Analysis tools
-│   ├── __init__.py
-│   ├── coherent_structures.py   # Structure detection algorithms
-│   
-│
-├── visualization/                # Professional visualizations
-│   ├── __init__.py
-│   ├── plot_structures.py       # Plot detected structures
-│   ├── plot_triangulation.py    # Visualize mesh evolution
-│   ├── plot_trajectories.py     # Trajectory plots
-│   └── animate.py               # Create animations
-│
-└── docs/                         # Documentation
-    ├── theory.md                # Mathematical background
-    └── api.md                   # API documentation
-```
-
-## Requirements
-
-- Python 3.7+
-- NumPy
-- SciPy
-- Matplotlib
 
 ## License
 
