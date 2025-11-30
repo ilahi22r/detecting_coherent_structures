@@ -74,3 +74,11 @@ plt.scatter(tSlicePlot[0][0], tSlicePlot[0][1], s=2)
 plt.ylim(newYBound[0], newYBound[1])
 plt.xlim(newXBound[0], newXBound[1])
 plt.title("Bickley Jet Flow with Stationary Points")
+
+
+# Changes data structure for input to Dual Etec
+
+tSlices = [[] for i in range(len(times))]
+for i in range(len(Traj)):
+    for t in range(len(Traj[i])):
+        tSlices[t].append([Traj[i][t][0], Traj[i][t][1]])
