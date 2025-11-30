@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ## Quick Start
 ```python
 from src.etec_dual import EtecDualPeriodicBC
-
+```
 
 ## Method
 
@@ -69,7 +69,7 @@ detecting_coherent_structures/
 └── docs/                         # Documentation
     ├── theory.md                # Mathematical background
     └── api.md                   # API documentation
-
+```
 
 ## Requirements
 
