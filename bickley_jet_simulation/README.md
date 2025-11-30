@@ -1,6 +1,6 @@
 # Bickley Jet Simulation
 
-This repository implements the canonical Bickley Jet system used in coherent
+This subrepository implements the canonical Bickley Jet system used in coherent
 structure detection (Hadjighasem et al., Chaos 27, 053104, 2017). It includes:
 
 - Eulerian velocity field generation
