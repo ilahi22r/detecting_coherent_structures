@@ -1,5 +1,8 @@
 # Detecting Lagrangian Coherent Structures via Topological Advection
 
+> Status: Work in Progess
+> This repository is under active development and may change (11/30/2025)
+
 A computational topology-based framework for detecting coherent structures in 2D time-dependent flows using topological analysis of Lagrangian data. A robust alternative to traditional LCS methods for sparse, noisy trajectory data.
 
 ## Overview
@@ -96,7 +99,9 @@ Released under the MIT License.
 
 ## Contact
 Rida Naveed Ilahi
+
 ilahi22r@mtholyoke.edu
+
 Mount Holyoke College
 
 
