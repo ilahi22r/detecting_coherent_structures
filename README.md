@@ -41,6 +41,7 @@ The Dual E-tec algorithm:
 5. Identifies coherent structures from crossing patterns and topological entropy
 
 ## Repository Structure
+
 ```
 detecting_coherent_structures/
 ├── README.md
@@ -68,7 +69,6 @@ detecting_coherent_structures/
 └── docs/                         # Documentation
     ├── theory.md                # Mathematical background
     └── api.md                   # API documentation
-
 ```
 
 ## Requirements
