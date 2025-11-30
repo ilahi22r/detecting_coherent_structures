@@ -1,0 +1,108 @@
+# This function identifies coherent structures by starting with all pairs of adjacent trajectories # in the initial triangulation, applying the ETEC stretching operator to each pair, and keeping  # only those whose length ratio remains small (below a cutoff). It then iteratively merges compatible # low-stretch loops into larger closed curves, ultimately returning a list of merged loops that # represent coherent sets in the flow.
+
+def detectCoherentStructures(triInit, tri,cutOff = 2):
+
+    #Make a list of all the ptpairs in the triangulation
+    HaveCountedEdge = [False for i in range(triInit.totalnumedges)]
+    AdjacentPoints = []
+    for simp in triInit.simplist:
+        for j in range(3):
+            if not HaveCountedEdge[simp.edgeids[j]]:
+                HaveCountedEdge[simp.edgeids[j]] = True
+                ptpair = [simp.points[(j+1)%3], simp.points[(j+2)%3]]
+                if ptpair[0] < numTraj and ptpair[1] < numTraj:
+                    AdjacentPoints.append(ptpair)
+
+    #numTraj - this is the number of trajectories (not including the stationary point)
+
+  #exclude any edge Adjacent points
+
+    print("Number of AdjacentPoints = ", len(AdjacentPoints))
+
+  #cutOff = 3 #hypothetical; make a histogram and determine the cutoff value
+
+    newAdjacentPoints = []
+    LR = []
+
+    for ptpair in AdjacentPoints:
+        rbands = [ptpair]
+        Loop = Et.Loop(triInit, rbands)
+        InitialLen = Loop.GetWeightTotal()
+        tri.OperatorAction(Loop)
+        FinalLen = Loop.GetWeightTotal()
+        LengthRatio = FinalLen/InitialLen
+        LR.append(LengthRatio)
+
+        if LengthRatio <= cutOff:
+            newAdjacentPoints.append(ptpair)
+
+    AdjacentPoints = newAdjacentPoints
+
+    print("Number of New AdjacentPoints = ", len(AdjacentPoints))
+
+    plt.hist(LR)
+    plt.show()
+
+    coherentStructures = []
+
+
+    while not len(AdjacentPoints) == 0:
+        #select a random pair of adjacent Points
+        rand_int = random.randint(0,len(AdjacentPoints)-1)
+        loopInitial = AdjacentPoints[rand_int]
+        print("Initial Loop = ", loopInitial)
+        del AdjacentPoints[rand_int]  #remove the seed loop
+        #loopInitial = random.choice(AdjacentPoints)
+        combinationMade = True
+        AddtoCS = False
+
+        while combinationMade:
+            combinationMade = False
+            subsetofLoopwithSharedPoints = []
+
+            print("In combination while loop, new Initial Loop = ", loopInitial)
+            #find loops that share points with loopInitial
+            for ptpair in AdjacentPoints:
+                IP = LC.GetInteriorPoints(loopInitial,triInit)
+                if ptpair[0] in IP or ptpair[1] in IP:
+                    if not (ptpair[0] in IP and ptpair[1] in IP):
+                        subsetofLoopwithSharedPoints.append(ptpair)
+
+            print("Loops that share a point or two with the initial loop = ", subsetofLoopwithSharedPoints)
+
+            for loop in subsetofLoopwithSharedPoints:
+                loopInitial_interior = LC.GetInteriorPoints(loopInitial,triInit)
+                if not (loop[0] in loopInitial_interior and loop[1] in loopInitial_interior):
+
+                    #Combine loopInitial and loop using combineLoops
+                    print("Combining loop ", loopInitial, " with loop ", loop)
+                    combinedLoop = LC.CombineLoops(loopInitial, loop, triInit)
+
+                    rbands = [combinedLoop]  #take the first loop in combined loop
+                    Loop = Et.Loop(triInit, rbands)
+                    InitialLen = Loop.GetWeightTotal()
+                    tri.OperatorAction(Loop)
+                    FinalLen = Loop.GetWeightTotal()
+                    LengthRatio = FinalLen / InitialLen
+
+                    if LengthRatio < cutOff:
+                        #Update loopInitial with the combined loop
+                        AdjacentPoints.remove(loop)
+                        loopInitial = combinedLoop
+                        combinationMade = True
+                        AddtoCS = True
+
+
+
+        if AddtoCS:
+            #Append loopInitial to coherentStructures if a combination was made
+            coherentStructures.append(loopInitial)
+            print("coherentStructures = ", coherentStructures)
+
+
+
+    #function returns coherentStructures
+    return coherentStructures
+
+
+
