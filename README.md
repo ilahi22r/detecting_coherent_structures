@@ -30,8 +30,6 @@ pip install -r requirements.txt
 ```python
 from src.etec_dual import EtecDualPeriodicBC
 
-# [Add your basic usage example here]
-```
 
 ## Method
 
@@ -46,19 +44,14 @@ The Dual E-tec algorithm:
 ```
 detecting_coherent_structures/
 ├── README.md
-├── requirements.txt
-├── .gitignore
-├── LICENSE
 │
-├── src/                          # Core backend
-│   ├── __init__.py
-│   └── etec_dual.py             # Triangulation backend
+├── src/                              # Contains the main backend code used to generate triangulation
+│   └── etec_dual_periodic_bc_v2.py    
 │
-├── examples/                     # Full implementation 
-│   ├── __init__.py
-│   ├── bickley_jet.py           # Complete analysis script
-│   ├── velocity_fields.py       # Analytical velocity definitions
-│   └── run_analysis.py          # Main executable
+├── bickley_jet_example/               # Full implementation 
+│   ├── bickley_jet_velocity_field.py  # Solutions to Bickley Jet ODEs with ICs
+│   ├── creates_dynamic_range.py  # This defines a dynamic range in the y direction (adds stationary pts)
+│   └── generate_bickley_flow.py   # Generates Bickley Jet flow with stationary points
 │
 ├── analysis/                     # Analysis tools
 │   ├── __init__.py
