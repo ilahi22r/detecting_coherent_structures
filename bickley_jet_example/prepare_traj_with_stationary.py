@@ -1,9 +1,6 @@
-# This code recenters and vertically shifts all particle trajectories so their y-value fit inside a clean, dynamic range, then adds stationary "top" and "bottom" boundary points that remain fixed in time to help etec track edges more reliably. It then constructs a time-slice array and plots the initial positions of all advected and stationary points for the Bickley Jet flow.
+# This code recenters and vertically shifts all particle trajectories so their y-value fits inside a clean, dynamic range, then adds stationary "top" and "bottom" boundary points that remain fixed in time to help the etec algorith, track edges more reliably. Then, it constructs a time-slice array and plots the initial positions of all advected and stationary points for the Bickley Jet flow.
 
-
-# Now, let's define the dynamic range (in the y direction)
-# We are doing this to add stationary points to the top and the bottom
-
+# This defines a dynamic range in the y direction to add stationary points to the top and the bottom
 maxVal = 0
 minVal = 0
 for i in range(numTraj):
